@@ -14,14 +14,7 @@ void main(){
                 scanf("%d",&m1[row][col]);
             }
         }
-        /*
-        for(int row=0;row<a;row++){
-            for(int col=0;col<b;col++){
-                printf("%d\t",m1[row][col]);
-            }
-            printf("\n");
-        }
-        */
+        
         
         printf("Enter elements of matrix2 ");
         for(int row=0;row<c;row++){
@@ -29,17 +22,24 @@ void main(){
                 scanf("%d",&m2[row][col]);
             }
         }
+
+        
+
         for(int row=0;row<a;row++){
             for(int col=0;col<d;col++){
                 int ele=0;
                 for(int i=0;i<b;i++){
-                    ele+=m1[row][i]*m2[i][row];
+                    ele+=m1[row][i]*m2[i][col];
                     
                 }
-                //prod[row][col]=ele;
-                printf("%d\t",ele);
+                prod[row][col]=ele;
             }
-            printf("/n");
+        }
+        for(int row=0;row<a;row++){
+            for(int col=0;col<d;col++){
+                printf("%d\t",prod[row][col]);
+            }
+            printf("\n");
         }
         
     }
