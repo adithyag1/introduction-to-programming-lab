@@ -8,7 +8,7 @@ void main(){
     int m1[a][b],m2[c][d],prod[a][d];
     if(b!=c) printf("Invalid orders of matrix! cannot multiply");
     else{
-        printf("Enter elements of matrix1 ");
+        printf("Enter elements of matrix1\n");
         for(int row=0;row<a;row++){
             for(int col=0;col<b;col++){
                 scanf("%d",&m1[row][col]);
@@ -16,7 +16,7 @@ void main(){
         }
         
         
-        printf("Enter elements of matrix2 ");
+        printf("Enter elements of matrix2\n");
         for(int row=0;row<c;row++){
             for(int col=0;col<d;col++){
                 scanf("%d",&m2[row][col]);
