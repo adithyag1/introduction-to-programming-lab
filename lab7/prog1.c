@@ -37,8 +37,9 @@ void main(){
                     
                 }
                 //prod[row][col]=ele;
-                printf("%d\t",
+                printf("%d\t",ele);
             }
+            printf("/n");
         }
         
     }
