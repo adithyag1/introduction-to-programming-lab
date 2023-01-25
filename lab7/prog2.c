@@ -1,11 +1,34 @@
 #include<stdio.h>
 void main(){
-    int arr[3][3];
-    printf("Enter elements of 3x3 matrix:\n");
-    for(int i=0;i<3;i++){
-        for(int j=0;j<3;j++){
-            scanf("%d",&arr[i][j]);
+    int n;
+    printf("Enter the order of square matrix: ");
+    scanf("%d",&n);
+    float arr[n][n];
+    printf("Enter elements of square matrix\n");
+    for(int row=0;row<n;row++){
+        for(int col=0;col<n;col++){
+            scanf("%f",&arr[row][col]);
         }
     }
-    printf("Determinant=%d",arr[0][0]*(arr[1][1]*arr[2][2]-arr[1][2]*arr[2][1])-arr[0][1]*(arr[1][0]*arr[2][2]-arr[1][2]*arr[2][0])+arr[0][2]*(arr[1][0]*arr[2][1]-arr[1][1]*arr[2][0]));
+    float det=1;
+    for(int i=0;i<n;i++){
+        if(arr[i][i]==0){
+            det=0;
+            goto label;
+        }
+    }
+    for(int i=1;i<n;i++){
+        for(int j=i;j<n;j++){
+            int ratio=arr[j][i-1]/arr[i-1][i-1];
+            for(int k=0;k<n;k++){
+                arr[j][k]-=ratio*arr[i-1][k];
+            }
+        }
+    }
+
+    for(int i=0;i<n;i++){
+        det*=arr[i][i];
+    }
+label:
+    printf("Det=%f",det);
 }
