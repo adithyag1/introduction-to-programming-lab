@@ -38,6 +38,7 @@ void main(){
             printf("Record found.\n");
             printf("Employee details:\nEmpid: %d\nName: %s\nDOB: %d/%d/%d\nDOJ: %d/%d/%d\nAddress: %d, %s, %s, PIN %d\nDesignation: %s\nSalary: %d",\
             arr[i].empid,arr[i].name,arr[i].dob.day,arr[i].dob.month,arr[i].dob.year,arr[i].doj.day,arr[i].doj.month,arr[i].doj.year,arr[i].caddress.doorno,arr[i].caddress.line1,arr[i].caddress.line2,arr[i].caddress.pincode,arr[i].dgn,arr[i].salary);
+            break;
         }
     }
     if(!found)
