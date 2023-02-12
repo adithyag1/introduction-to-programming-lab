@@ -1,5 +1,5 @@
-#include <stdio.h>;
-#include<string.h>;
+#include<stdio.h>
+#include<string.h>
 
 typedef struct{
     int day;
@@ -24,23 +24,50 @@ typedef struct{
     int salary;
 }employee;
 
+int i=0;
+
 void main(){
-    employee arr[2]={
-        {1,"Naren",{12,10,1999},{1,8,2022},{15,"Golden Apartments, 6th street, Radha Nagar","Chrompet,Chennai,Tamil Nadu",600044},"Assistant Manager",60000},
-        {2,"Divya",{17,12,1990},{6,7,2013},{8,"LMG Towers, Flower street, Perumal Nagar","Old Pallavram,Chennai,Tamil Nadu",600117},"Manager",100000}
-                    };
-    printf("Enter employee id: ");
-    int id,found=0;
-    scanf("%d",&id);
-    for(int i=0;i<5;i++){
-        if(arr[i].empid==id){
-            found=1;
-            printf("Record found.\n");
-            printf("Employee details:\nEmpid: %d\nName: %s\nDOB: %d/%d/%d\nDOJ: %d/%d/%d\nAddress: %d, %s, %s, PIN %d\nDesignation: %s\nSalary: %d",\
-            arr[i].empid,arr[i].name,arr[i].dob.day,arr[i].dob.month,arr[i].dob.year,arr[i].doj.day,arr[i].doj.month,arr[i].doj.year,arr[i].caddress.doorno,arr[i].caddress.line1,arr[i].caddress.line2,arr[i].caddress.pincode,arr[i].dgn,arr[i].salary);
-            break;
+    employee arr[5];
+    int choice=3;
+    while(choice!=0){
+        printf("\nEnter 1 to add record\nEnter 2 to view record\nEnter 0 to quit\nChoice:");
+        scanf("%d",&choice);
+        switch(choice){
+            case 0:
+                break;
+            case 1:
+                printf("Enter Employee details:\n");
+                printf("Empid: "); scanf("%d",&arr[i].empid);
+                printf("Name: "); scanf("%s",arr[i].name);
+                printf("DOB: "); scanf("%d/%d/%d",&arr[i].dob.day,&arr[i].dob.month,&arr[i].dob.year);
+                printf("DOJ: "); scanf("%d/%d/%d",&arr[i].doj.day,&arr[i].doj.month,&arr[i].doj.year);
+                printf("Address:\n");
+                printf("Door no: "); scanf("%d",&arr[i].caddress.doorno);
+                printf("Line 1: "); scanf("%s",arr[i].caddress.line1);
+                printf("Line 2: "); scanf("%s",arr[i].caddress.line2);
+                printf("PINCODE: "); scanf("%d",&arr[i].caddress.pincode);
+                printf("Designation: "); scanf("%s",arr[i].dgn);
+                printf("Salary: "); scanf("%d",&arr[i].salary);
+                i++;
+                break;
+            case 2:
+                printf("Enter employee id: ");
+                int id,found=0;
+                scanf("%d",&id);
+                for(int j=0;j<i;j++){
+                    if(arr[j].empid==id){
+                        found=1;
+                        printf("Record found.\n");
+                        printf("Empid=%d\nName=%s\nDOB=%d/%d/%d\nDOJ=%d/%d/%d\nAddress={%d,%s,%s,%d}\nDesignation=%s\nSalary=%d}\n",arr[j].empid,arr[j].name,arr[j].dob.day,arr[j].dob.month,arr[j].dob.year,arr[j].doj.day,arr[j].doj.month,arr[j].doj.year,arr[j].caddress.doorno,arr[j].caddress.line1,arr[j].caddress.line2,arr[j].caddress.pincode,arr[j].dgn,arr[j].salary);
+                        break;
+                    }
+                }
+                if(!found)
+                    printf("Record not found.");
+                break;
+            default:
+                printf("Invalid choice.");
+                break;
         }
     }
-    if(!found)
-        printf("Record not found.");
 }
